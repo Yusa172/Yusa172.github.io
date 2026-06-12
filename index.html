@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Sim&atilde;o Fi&uacute;za | Economics & Data Analysis</title>
+    <meta
+      name="description"
+      content="Portfolio for Sim&atilde;o Fi&uacute;za: Economics student focused on data analysis, dashboards, financial markets, risk analysis, and digital economies."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.setAttribute("data-theme", savedTheme || (prefersDark ? "dark" : "light"));
+        } catch (error) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Sim&atilde;o Fi&uacute;za home">
+          <span class="brand-mark">SF</span>
+          <span class="brand-name">Sim&atilde;o Fi&uacute;za</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#focus">Focus</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="icon-button" id="openCommand" type="button" aria-label="Open command menu" title="Search">
+            <span aria-hidden="true">/</span>
+          </button>
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme" title="Theme">
+            <span aria-hidden="true" class="theme-symbol">sun</span>
+          </button>
+          <a class="button button-quiet" href="CV.pdf" target="_blank" rel="noopener">CV</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section-band" id="home">
+        <div class="hero-media hero-avatar" aria-hidden="true">
+          <img src="assets/avatar.png" alt="" />
+        </div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <div class="hero-content container reveal">
+          <p class="eyebrow">Economics Student · Data Analysis · Digital Markets</p>
+          <h1>Sim&atilde;o Fi&uacute;za</h1>
+          <p class="hero-role">Economics student at the University of Beira Interior.</p>
+          <p class="hero-copy">
+            I turn economic data, market signals, and raw information into clear insights through
+            analysis, dashboards, visualization, and quantitative thinking.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View projects</a>
+            <a class="button button-secondary" href="CV.pdf" target="_blank" rel="noopener">Open CV</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>01</span>
+            <h2>About</h2>
+          </div>
+
+          <div class="about-layout">
+            <div class="about-copy reveal">
+              <p class="lead">
+                I am an Economics student interested in the intersection between economics, data,
+                technology, and financial markets.
+              </p>
+              <p>
+                I enjoy turning raw information into clear insights through data analysis, dashboards,
+                and economic interpretation. My current toolkit includes R, Python, Excel, Power BI, and C.
+              </p>
+              <p>
+                I am building stronger foundations in quantitative analysis, visualization, decision support,
+                risk analysis, and digital-market research.
+              </p>
+            </div>
+
+            <div class="metric-grid reveal" aria-label="Profile metrics">
+              <div class="metric">
+                <strong data-count="2023" data-suffix="">0</strong>
+                <span>BSc in Economics started at UBI</span>
+              </div>
+              <div class="metric">
+                <strong data-count="2" data-suffix="">0</strong>
+                <span>Public GitHub repositories</span>
+              </div>
+              <div class="metric">
+                <strong data-count="5" data-suffix="+">0+</strong>
+                <span>Core analytical tools and languages</span>
+              </div>
+              <div class="metric">
+                <strong data-count="365" data-suffix="">0</strong>
+                <span>Calendar days used for market-volatility annualization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="focus">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>02</span>
+            <h2>Focus</h2>
+          </div>
+
+          <ol class="timeline">
+            <li class="timeline-item reveal">
+              <div class="timeline-date">Now</div>
+              <article>
+                <div class="timeline-title-row">
+                  <h3>Economics & Data Analysis</h3>
+                  <span class="pill">Core</span>
+                </div>
+                <p class="org">University of Beira Interior</p>
+                <p>
+                  Studying economics while developing practical data-analysis skills for trends,
+                  indicators, dashboards, and decision-support work.
+                </p>
+              </article>
+            </li>
+
+            <li class="timeline-item reveal">
+              <div class="timeline-date">Research</div>
+              <article>
+                <h3>Digital Markets</h3>
+                <p class="org">CS2 / Steam Market</p>
+                <ul>
+                  <li>Analyzing CS2 skins as digital assets with price, volume, liquidity, hype, and market shocks.</li>
+                  <li>Using volatility as a way to discuss risk and uncertainty in virtual economies.</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="timeline-item reveal">
+              <div class="timeline-date">Building</div>
+              <article>
+                <h3>Portfolio Value at Risk</h3>
+                <p class="org">Finance-oriented Python project</p>
+                <ul>
+                  <li>Planned VaR calculator using historical, parametric, and Monte Carlo approaches.</li>
+                  <li>Planned features include CVaR, backtesting, stress analysis, and visual loss-distribution charts.</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="timeline-item reveal">
+              <div class="timeline-date">Open</div>
+              <article>
+                <h3>Collaboration & Learning</h3>
+                <p class="org">Leiria, Portugal</p>
+                <ul>
+                  <li>Open to academic projects, dashboards, analytical tools, and learning opportunities.</li>
+                  <li>Interested in economics, data, financial markets, digital economies, and technology.</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>03</span>
+            <h2>Projects</h2>
+          </div>
+
+          <div class="project-grid">
+            <a class="project-card reveal" href="https://github.com/Yusa172/csgo-steam-market-volatility-analysis" target="_blank" rel="noopener" data-repo="Yusa172/csgo-steam-market-volatility-analysis">
+              <span class="project-number">01</span>
+              <h3>CS2 Steam Market Volatility Analysis</h3>
+              <p>
+                Research project collecting Steam Market price history and analyzing price, volume,
+                returns, volatility, and risk metrics for CS2 skins, cases, knives, and stickers.
+              </p>
+              <ul class="tag-list">
+                <li>R</li>
+                <li>Python</li>
+                <li>Steam Market</li>
+                <li>Volatility</li>
+              </ul>
+              <span class="project-link">Open on GitHub &rarr;</span>
+            </a>
+
+            <article class="project-card reveal">
+              <span class="project-number">02</span>
+              <h3>Portfolio Value at Risk Calculator</h3>
+              <p>
+                Ongoing Python project for estimating portfolio risk with Historical VaR, Parametric VaR,
+                Monte Carlo simulation, CVaR, backtesting, and visual analysis of loss distributions.
+              </p>
+              <ul class="tag-list">
+                <li>Python</li>
+                <li>NumPy</li>
+                <li>pandas</li>
+                <li>Risk Analysis</li>
+              </ul>
+              <span class="project-link">Ongoing</span>
+            </article>
+
+            <article class="project-card reveal">
+              <span class="project-number">03</span>
+              <h3>Data Visualization for Decision-Making</h3>
+              <p>
+                Course-based work focused on transforming information into dashboards, metrics, and
+                decision-support visuals using Excel and Power BI.
+              </p>
+              <ul class="tag-list">
+                <li>Excel</li>
+                <li>Power BI</li>
+                <li>Dashboards</li>
+                <li>Indicators</li>
+              </ul>
+              <span class="project-link">Academic work</span>
+            </article>
+          </div>
+
+          <div class="github-panel reveal">
+            <div>
+              <p class="eyebrow">Public GitHub</p>
+              <h3>Repositories from Yusa172</h3>
+            </div>
+            <a class="button button-secondary" href="https://github.com/Yusa172" target="_blank" rel="noopener">GitHub profile</a>
+          </div>
+          <div class="repo-grid" id="repoGrid" aria-live="polite">
+            <noscript>
+              <p class="fallback">
+                JavaScript is disabled. Visit github.com/Yusa172 to see the public repository list.
+              </p>
+            </noscript>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="skills">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>04</span>
+            <h2>Skills</h2>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-block reveal">
+              <h3>Languages</h3>
+              <ul class="skill-list">
+                <li>R</li>
+                <li>Python</li>
+                <li>C</li>
+              </ul>
+            </article>
+            <article class="skill-block reveal">
+              <h3>Data & Visualization</h3>
+              <ul class="skill-list">
+                <li>Excel</li>
+                <li>Power BI</li>
+                <li>Dashboards</li>
+                <li>Data Analysis</li>
+                <li>Visualization</li>
+              </ul>
+            </article>
+            <article class="skill-block reveal">
+              <h3>Core Areas</h3>
+              <ul class="skill-list">
+                <li>Economics</li>
+                <li>Statistics</li>
+                <li>Financial Markets</li>
+                <li>Risk Analysis</li>
+                <li>Monte Carlo</li>
+                <li>Digital Economy</li>
+              </ul>
+            </article>
+            <article class="skill-block reveal">
+              <h3>Strengths</h3>
+              <ul class="skill-list">
+                <li>Economic analysis</li>
+                <li>Quantitative thinking</li>
+                <li>Problem solving</li>
+                <li>Decision support</li>
+              </ul>
+            </article>
+          </div>
+
+          <article class="education reveal">
+            <span>05</span>
+            <div>
+              <h3>BSc in Economics</h3>
+              <p>University of Beira Interior</p>
+              <p>2023 - present</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>06</span>
+            <h2>Contact</h2>
+          </div>
+
+          <div class="contact-card reveal">
+            <p class="contact-copy">
+              Turning data into decisions, and curiosity into progress.
+            </p>
+            <a class="contact-email" href="mailto:simaofiuza1@gmail.com">simaofiuza1@gmail.com</a>
+            <div class="contact-actions">
+              <button class="button button-primary" id="copyEmail" type="button">Copy email</button>
+              <a class="button button-secondary" href="https://www.linkedin.com/in/sim%C3%A3o-fi%C3%BAza" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="button button-secondary" href="https://github.com/Yusa172" target="_blank" rel="noopener">GitHub</a>
+              <a class="button button-secondary" href="CV.pdf" target="_blank" rel="noopener">CV</a>
+            </div>
+            <p class="local-time">Leiria, Portugal · local time: <span id="localTime">--:--</span></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year">2026</span> Sim&atilde;o Fi&uacute;za</p>
+        <a href="#home">Back to top</a>
+      </div>
+    </footer>
+
+    <div class="command" id="command" hidden>
+      <button class="command-backdrop" type="button" data-close-command aria-label="Close command menu"></button>
+      <div class="command-panel" role="dialog" aria-modal="true" aria-label="Command menu">
+        <input id="commandInput" type="search" placeholder="Search sections and links" autocomplete="off" />
+        <div class="command-list" id="commandList" role="listbox"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
