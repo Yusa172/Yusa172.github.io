@@ -136,7 +136,11 @@
   }
 
   function setFinalMetric(element) {
-    element.textContent = Number(element.dataset.count).toLocaleString("en-US") + (element.dataset.suffix || "");
+    element.textContent = formatMetricValue(Number(element.dataset.count)) + (element.dataset.suffix || "");
+  }
+
+  function formatMetricValue(value) {
+    return value >= 10000 ? value.toLocaleString("en-US") : String(value);
   }
 
   function countMetric(element) {
@@ -149,7 +153,7 @@
       var progressValue = Math.min(1, (now - start) / duration);
       var eased = 1 - Math.pow(1 - progressValue, 3);
       var value = Math.round(target * eased);
-      element.textContent = value.toLocaleString("en-US") + suffix;
+      element.textContent = formatMetricValue(value) + suffix;
       if (progressValue < 1) requestAnimationFrame(frame);
     }
 
