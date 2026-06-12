@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,9 +14,8 @@
     <script>
       (function () {
         try {
-          var savedTheme = localStorage.getItem("theme");
-          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          document.documentElement.setAttribute("data-theme", savedTheme || (prefersDark ? "dark" : "light"));
+          var savedTheme = localStorage.getItem("simao-portfolio-theme-v3");
+          document.documentElement.setAttribute("data-theme", savedTheme || "dark");
         } catch (error) {}
       })();
     </script>
@@ -41,42 +40,81 @@
           <a href="#about">About</a>
           <a href="#focus">Focus</a>
           <a href="#projects">Projects</a>
+          <a href="#courses">Courses</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </div>
 
         <div class="nav-actions">
-          <button class="icon-button" id="openCommand" type="button" aria-label="Open command menu" title="Search">
-            <span aria-hidden="true">/</span>
+          <a class="button button-quiet cv-link" href="CV.pdf" target="_blank" rel="noopener">Resume</a>
+          <button class="cmdk-trigger" id="openCommand" type="button" aria-label="Open command menu" title="Search">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+            </svg>
+            <kbd>Ctrl K</kbd>
           </button>
-          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme" title="Theme">
-            <span aria-hidden="true" class="theme-symbol">sun</span>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.5"></circle>
+              <line x1="12" y1="2" x2="12" y2="5"></line>
+              <line x1="12" y1="19" x2="12" y2="22"></line>
+              <line x1="2" y1="12" x2="5" y2="12"></line>
+              <line x1="19" y1="12" x2="22" y2="12"></line>
+              <line x1="4.5" y1="4.5" x2="6.6" y2="6.6"></line>
+              <line x1="17.4" y1="17.4" x2="19.5" y2="19.5"></line>
+              <line x1="4.5" y1="19.5" x2="6.6" y2="17.4"></line>
+              <line x1="17.4" y1="6.6" x2="19.5" y2="4.5"></line>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"></path>
+            </svg>
           </button>
-          <a class="button button-quiet" href="CV.pdf" target="_blank" rel="noopener">CV</a>
         </div>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero section-band" id="home">
-        <div class="hero-media hero-avatar" aria-hidden="true">
-          <img src="assets/avatar.png" alt="" />
+        <div class="hero-media">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="assets/portrait-480.webp 480w, assets/portrait-920.webp 920w"
+              sizes="(max-width: 860px) 260px, 460px"
+            />
+            <img src="assets/portrait-920.webp" alt="Portrait of Simão Fiúza" width="920" height="1150" loading="eager" decoding="async" />
+          </picture>
         </div>
         <div class="hero-shade" aria-hidden="true"></div>
 
         <div class="hero-content container reveal">
-          <p class="eyebrow">Economics Student · Data Analysis · Digital Markets</p>
-          <h1>Sim&atilde;o Fi&uacute;za</h1>
-          <p class="hero-role">Economics student at the University of Beira Interior.</p>
+          <a class="hero-badge" href="#focus">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Economics student <strong>at UBI</strong> &middot; <strong>data & markets</strong>
+          </a>
+          <h1>
+            <span>Sim&atilde;o</span>
+            <span>Fi&uacute;za</span>
+          </h1>
+          <p class="hero-role">Economics student — data analysis, dashboards and digital markets.</p>
           <p class="hero-copy">
-            I turn economic data, market signals, and raw information into clear insights through
-            analysis, dashboards, visualization, and quantitative thinking.
+            I work where <em>markets</em> meet <em>data</em>: turning noisy prices, indicators and
+            raw information into clearer decisions through analysis, dashboards and risk thinking.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View projects</a>
-            <a class="button button-secondary" href="CV.pdf" target="_blank" rel="noopener">Open CV</a>
+            <a class="button button-primary" href="#projects">View my work</a>
+            <a class="button button-secondary" href="#contact">Get in touch</a>
+          </div>
+          <div class="hero-hint" aria-hidden="true">
+            <span>Press</span>
+            <kbd>Ctrl+K</kbd>
+            <span>or</span>
+            <kbd>/</kbd>
+            <span>to navigate</span>
           </div>
         </div>
+        <a href="#about" class="scroll-cue" aria-label="Scroll to content">Scroll</a>
       </section>
 
       <section class="section" id="about">
@@ -100,26 +138,36 @@
                 I am building stronger foundations in quantitative analysis, visualization, decision support,
                 risk analysis, and digital-market research.
               </p>
+              <div class="about-signature">
+                <span>Economics lens</span>
+                <p>
+                  I like projects where a dataset becomes a decision: prices, incentives, risk,
+                  and behavior explained with clean evidence.
+                </p>
+              </div>
             </div>
 
-            <div class="metric-grid reveal" aria-label="Profile metrics">
-              <div class="metric">
-                <strong data-count="2023" data-suffix="">0</strong>
-                <span>BSc in Economics started at UBI</span>
+            <aside class="about-panel reveal" aria-label="Profile snapshot">
+              <div class="panel-kicker">Profile snapshot</div>
+              <div class="panel-line">
+                <span>Current focus</span>
+                <strong>Economics, data analysis and digital markets</strong>
               </div>
-              <div class="metric">
-                <strong data-count="2" data-suffix="">0</strong>
-                <span>Public GitHub repositories</span>
+              <div class="panel-line">
+                <span>Working style</span>
+                <strong>Clear dashboards, practical interpretation and measured risk thinking</strong>
               </div>
-              <div class="metric">
-                <strong data-count="5" data-suffix="+">0+</strong>
-                <span>Core analytical tools and languages</span>
+              <div class="mini-metrics">
+                <div>
+                  <strong data-count="2023" data-suffix="">0</strong>
+                  <span>BSc started</span>
+                </div>
+                <div>
+                  <strong data-count="5" data-suffix="+">0+</strong>
+                  <span>Core tools</span>
+                </div>
               </div>
-              <div class="metric">
-                <strong data-count="365" data-suffix="">0</strong>
-                <span>Calendar days used for market-volatility annualization</span>
-              </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -142,7 +190,8 @@
                 <p class="org">University of Beira Interior</p>
                 <p>
                   Studying economics while developing practical data-analysis skills for trends,
-                  indicators, dashboards, and decision-support work.
+                  indicators, dashboards, and decision-support work. I am drawn to work where a model,
+                  chart, or metric changes how someone understands a problem.
                 </p>
               </article>
             </li>
@@ -154,7 +203,7 @@
                 <p class="org">CS2 / Steam Market</p>
                 <ul>
                   <li>Analyzing CS2 skins as digital assets with price, volume, liquidity, hype, and market shocks.</li>
-                  <li>Using volatility as a way to discuss risk and uncertainty in virtual economies.</li>
+                  <li>Using volatility as a way to discuss risk, uncertainty, scarcity, and speculative behavior in virtual economies.</li>
                 </ul>
               </article>
             </li>
@@ -166,7 +215,7 @@
                 <p class="org">Finance-oriented Python project</p>
                 <ul>
                   <li>Planned VaR calculator using historical, parametric, and Monte Carlo approaches.</li>
-                  <li>Planned features include CVaR, backtesting, stress analysis, and visual loss-distribution charts.</li>
+                  <li>Planned features include CVaR, backtesting, stress analysis, and loss-distribution charts that explain risk without hiding behind formulas.</li>
                 </ul>
               </article>
             </li>
@@ -225,22 +274,6 @@
               </ul>
               <span class="project-link">Ongoing</span>
             </article>
-
-            <article class="project-card reveal">
-              <span class="project-number">03</span>
-              <h3>Data Visualization for Decision-Making</h3>
-              <p>
-                Course-based work focused on transforming information into dashboards, metrics, and
-                decision-support visuals using Excel and Power BI.
-              </p>
-              <ul class="tag-list">
-                <li>Excel</li>
-                <li>Power BI</li>
-                <li>Dashboards</li>
-                <li>Indicators</li>
-              </ul>
-              <span class="project-link">Academic work</span>
-            </article>
           </div>
 
           <div class="github-panel reveal">
@@ -260,10 +293,68 @@
         </div>
       </section>
 
-      <section class="section section-muted" id="skills">
+      <section class="section section-muted" id="courses">
         <div class="container">
           <div class="section-heading reveal">
             <span>04</span>
+            <h2>Courses</h2>
+          </div>
+
+          <div class="courses-intro reveal">
+            <p>
+              Extra training that supports my economics degree: practical data visualization,
+              decision-making tools, and a broader understanding of risk and work organization.
+            </p>
+          </div>
+
+          <div class="course-grid">
+            <article class="course-card reveal">
+              <div class="course-year">2024</div>
+              <h3>Data Visualisation for Decision-Making</h3>
+              <p>
+                Course-based work focused on transforming information into dashboards,
+                metrics, and decision-support visuals.
+              </p>
+              <ul class="course-list">
+                <li>Analysed and processed information using Excel.</li>
+                <li>Built dashboards and visualisations in Power BI.</li>
+                <li>Applied metrics and indicators to support decision-making.</li>
+                <li>Developed quantitative and data interpretation skills.</li>
+              </ul>
+              <ul class="tag-list">
+                <li>Excel</li>
+                <li>Power BI</li>
+                <li>Dashboards</li>
+                <li>Indicators</li>
+              </ul>
+            </article>
+
+            <article class="course-card reveal">
+              <div class="course-year">2024</div>
+              <h3>Occupational Health and Risk Prevention</h3>
+              <p>
+                Training focused on productivity, fatigue-related risks, work organization,
+                and prevention best practices.
+              </p>
+              <ul class="course-list">
+                <li>Studied work-time management principles and productivity.</li>
+                <li>Examined fatigue-related risk factors and work organization.</li>
+                <li>Reviewed regulatory context and prevention best practices.</li>
+              </ul>
+              <ul class="tag-list">
+                <li>Risk prevention</li>
+                <li>Productivity</li>
+                <li>Work organization</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>05</span>
             <h2>Skills</h2>
           </div>
 
@@ -293,7 +384,6 @@
                 <li>Statistics</li>
                 <li>Financial Markets</li>
                 <li>Risk Analysis</li>
-                <li>Monte Carlo</li>
                 <li>Digital Economy</li>
               </ul>
             </article>
@@ -309,7 +399,7 @@
           </div>
 
           <article class="education reveal">
-            <span>05</span>
+            <span>2023</span>
             <div>
               <h3>BSc in Economics</h3>
               <p>University of Beira Interior</p>
@@ -328,7 +418,7 @@
 
           <div class="contact-card reveal">
             <p class="contact-copy">
-              Turning data into decisions, and curiosity into progress.
+              If a chart can make a decision less vague, I probably want to build it.
             </p>
             <a class="contact-email" href="mailto:simaofiuza1@gmail.com">simaofiuza1@gmail.com</a>
             <div class="contact-actions">

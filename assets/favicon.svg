@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#101827"/>
-  <path d="M10 49h44" stroke="#f2c811" stroke-width="3" stroke-linecap="round"/>
-  <path d="M14 43l9-11 8 6 11-18 8 9" fill="none" stroke="#55d58c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="32" y="31" fill="#ffffff" font-family="Consolas, 'Liberation Mono', monospace" font-size="22" font-weight="700" text-anchor="middle" dominant-baseline="central">SF</text>
+  <rect width="64" height="64" rx="14" fill="#17140f"/>
+  <rect x="8" y="8" width="48" height="48" rx="24" fill="none" stroke="#b45309" stroke-width="2"/>
+  <text x="32" y="33" fill="#f7f2e9" font-family="Consolas, 'Liberation Mono', monospace" font-size="23" font-weight="700" text-anchor="middle" dominant-baseline="central">SF</text>
 </svg>

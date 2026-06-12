@@ -24,16 +24,6 @@
       stargazers_count: 0,
       forks_count: 0,
       pushed_at: "2026-05-15T16:03:09Z"
-    },
-    {
-      name: "Yusa172",
-      full_name: "Yusa172/Yusa172",
-      description: "GitHub profile README for Simão Fiúza.",
-      html_url: "https://github.com/Yusa172/Yusa172",
-      language: "Markdown",
-      stargazers_count: 0,
-      forks_count: 0,
-      pushed_at: "2026-05-15T02:39:50Z"
     }
   ];
 
@@ -41,6 +31,7 @@
     { label: "About", hint: "Profile and summary", href: "#about" },
     { label: "Focus", hint: "Economics, data and markets", href: "#focus" },
     { label: "Projects", hint: "Featured work", href: "#projects" },
+    { label: "Courses", hint: "Additional training", href: "#courses" },
     { label: "Skills", hint: "Tools and education", href: "#skills" },
     { label: "Contact", hint: "Email and links", href: "#contact" },
     { label: "Open CV", hint: "PDF resume", href: "CV.pdf", external: true },
@@ -54,7 +45,7 @@
   function setTheme(theme) {
     root.setAttribute("data-theme", theme);
     try {
-      localStorage.setItem("theme", theme);
+      localStorage.setItem("simao-portfolio-theme-v3", theme);
     } catch (error) {}
   }
 
@@ -271,7 +262,7 @@
 
     repos
       .filter(function (repo) {
-        return !repo.fork;
+        return !repo.fork && repo.name !== "Yusa172";
       })
       .sort(function (a, b) {
         return new Date(b.pushed_at || b.updated_at || 0) - new Date(a.pushed_at || a.updated_at || 0);
