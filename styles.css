@@ -927,6 +927,13 @@ p {
   padding: 28px;
 }
 
+.course-card-featured {
+  grid-column: span 2;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--gold), transparent 90%), transparent 42%),
+    color-mix(in srgb, var(--surface), transparent 7%);
+}
+
 .course-card::before {
   position: absolute;
   inset: 0 auto 0 0;
@@ -1408,6 +1415,10 @@ p {
   .course-grid,
   .repo-grid {
     grid-template-columns: 1fr;
+  }
+
+  .course-card-featured {
+    grid-column: auto;
   }
 
   .about-panel {

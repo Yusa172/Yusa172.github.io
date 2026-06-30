@@ -31,7 +31,7 @@
     { label: "About", hint: "Profile and summary", href: "#about" },
     { label: "Focus", hint: "Economics, data and markets", href: "#focus" },
     { label: "Projects", hint: "Featured work", href: "#projects" },
-    { label: "Courses", hint: "Additional training", href: "#courses" },
+    { label: "Courses", hint: "Courses and certifications", href: "#courses" },
     { label: "Skills", hint: "Tools and education", href: "#skills" },
     { label: "Contact", hint: "Email and links", href: "#contact" },
     { label: "Open CV", hint: "PDF resume", href: "cv_simão.pdf", external: true },
