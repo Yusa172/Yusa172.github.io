@@ -612,6 +612,15 @@ p {
   max-width: 760px;
 }
 
+.cv-summary {
+  max-width: 720px;
+  border-left: 2px solid var(--gold);
+  color: var(--text);
+  padding-left: 18px;
+  font-size: 18px;
+  line-height: 1.58;
+}
+
 .about-copy .lead {
   color: var(--ink);
   font-size: 25px;
