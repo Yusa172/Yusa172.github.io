@@ -34,7 +34,7 @@
     { label: "Courses", hint: "Additional training", href: "#courses" },
     { label: "Skills", hint: "Tools and education", href: "#skills" },
     { label: "Contact", hint: "Email and links", href: "#contact" },
-    { label: "Open CV", hint: "PDF resume", href: "CV.pdf", external: true },
+    { label: "Open CV", hint: "PDF resume", href: "cv_simão.pdf", external: true },
     { label: "GitHub", hint: "Yusa172 repositories", href: "https://github.com/Yusa172", external: true },
     { label: "LinkedIn", hint: "Professional profile", href: "https://www.linkedin.com/in/sim%C3%A3o-fi%C3%BAza", external: true },
     { label: "Copy email", hint: email, action: copyEmailAddress },
