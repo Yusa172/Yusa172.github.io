@@ -12,7 +12,7 @@
   var openCommand = document.getElementById("openCommand");
   var commandInput = document.getElementById("commandInput");
   var commandList = document.getElementById("commandList");
-  var email = "simaofiuza1@gmail.com";
+  var email = "simaofiuza.cv@gmail.com";
 
   var fallbackRepos = [
     {
