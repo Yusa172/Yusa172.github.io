@@ -1,562 +1,460 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <title>Sim&atilde;o Fi&uacute;za | Economics, Funding Applications & Data</title>
+    <title>Sim&atilde;o Fi&uacute;za | Economics, Financial Models & Data</title>
     <meta
       name="description"
-      content="Portfolio for Sim&atilde;o Fi&uacute;za: final-year Economics student at the University of Beira Interior and funding applications intern, working with financial models, Excel, Power BI, R and Python."
+      content="Sim&atilde;o Fi&uacute;za: final-year Economics student at the University of Beira Interior and funding applications intern, working with financial models, Excel, Power BI, R and Python."
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <script>
-      (function () {
-        try {
-          var savedTheme = localStorage.getItem("simao-portfolio-theme-v3");
-          document.documentElement.setAttribute("data-theme", savedTheme || "dark");
-        } catch (error) {}
-      })();
+      document.documentElement.classList.add("js");
     </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="progress" id="progress" aria-hidden="true"></div>
 
-    <header class="site-header" id="top">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="#home" aria-label="Sim&atilde;o Fi&uacute;za home">
-          <span class="brand-mark">SF</span>
-          <span class="brand-name">Sim&atilde;o Fi&uacute;za</span>
-        </a>
+    <header class="header" id="header">
+      <div class="wrap header-inner">
+        <a class="logo" href="#home" aria-label="Sim&atilde;o Fi&uacute;za, home">&lt;S/F&gt;</a>
 
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-        </button>
-
-        <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
+        <nav class="nav" id="nav" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#services">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#courses">Courses</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </div>
+          <a href="#contact">Contact me</a>
+        </nav>
 
-        <div class="nav-actions">
-          <a class="button button-quiet cv-link" href="cv_simão.pdf" target="_blank" rel="noopener">Resume</a>
-          <button class="cmdk-trigger" id="openCommand" type="button" aria-label="Open command menu" title="Search">
-            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-              <circle cx="11" cy="11" r="7"></circle>
-              <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
-            </svg>
+        <div class="header-icons">
+          <button class="cmd-btn" id="openCommand" type="button" aria-label="Open command menu" title="Search (Ctrl K)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
             <kbd>Ctrl K</kbd>
           </button>
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Theme">
-            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <circle cx="12" cy="12" r="4.5"></circle>
-              <line x1="12" y1="2" x2="12" y2="5"></line>
-              <line x1="12" y1="19" x2="12" y2="22"></line>
-              <line x1="2" y1="12" x2="5" y2="12"></line>
-              <line x1="19" y1="12" x2="22" y2="12"></line>
-              <line x1="4.5" y1="4.5" x2="6.6" y2="6.6"></line>
-              <line x1="17.4" y1="17.4" x2="19.5" y2="19.5"></line>
-              <line x1="4.5" y1="19.5" x2="6.6" y2="17.4"></line>
-              <line x1="17.4" y1="6.6" x2="19.5" y2="4.5"></line>
-            </svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"></path>
-            </svg>
+          <a href="https://www.linkedin.com/in/sim%C3%A3o-fi%C3%BAza" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="8" y1="10.5" x2="8" y2="16.5"></line><circle cx="8" cy="7.6" r="0.6"></circle><path d="M12 16.5v-6M12 13c0-1.6 1-2.6 2.3-2.6S16.5 11.3 16.5 13v3.5"></path></svg>
+          </a>
+          <a href="https://github.com/Yusa172" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.4a3 3 0 0 0-.8-2.3c2.8-.3 5.8-1.4 5.8-6.2a4.8 4.8 0 0 0-1.3-3.3 4.5 4.5 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C5.6 2.2 4.6 2.5 4.6 2.5a4.5 4.5 0 0 0-.1 3.3A4.8 4.8 0 0 0 3.2 9.1c0 4.8 3 5.9 5.8 6.2a3 3 0 0 0-.8 2.3V21"></path></svg>
+          </a>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+            <span></span><span></span>
           </button>
         </div>
-      </nav>
+      </div>
     </header>
 
     <main id="main">
-      <section class="hero section-band" id="home">
-        <div class="hero-media">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="assets/portrait-480.webp 480w, assets/portrait-920.webp 920w"
-              sizes="(max-width: 860px) 260px, 460px"
-            />
-            <img src="assets/portrait-920.webp" alt="Portrait of Simão Fiúza" width="920" height="1150" loading="eager" decoding="async" />
-          </picture>
-        </div>
-        <div class="hero-shade" aria-hidden="true"></div>
-
-        <div class="hero-content container reveal">
-          <a class="hero-badge" href="#experience">
-            <span class="badge-dot" aria-hidden="true"></span>
-            <span class="badge-text">Final-year Economics <strong>at UBI</strong> &middot; <strong>funding applications</strong></span>
-          </a>
-          <h1>
-            <span>Sim&atilde;o</span>
-            <span>Fi&uacute;za</span>
-          </h1>
-          <p class="hero-role">Final-year Economics student — financial models, funding applications and data.</p>
-          <p class="hero-copy">
-            I work where <em>numbers</em> meet <em>decisions</em>: building financial models for
-            funding applications, and turning prices, indicators and raw data into clear analysis.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View my work</a>
-            <a class="button button-secondary" href="#contact">Get in touch</a>
-          </div>
-          <div class="hero-hint" aria-hidden="true">
-            <span>Press</span>
-            <kbd>Ctrl+K</kbd>
-            <span>or</span>
-            <kbd>/</kbd>
-            <span>to navigate</span>
-          </div>
-        </div>
-        <a href="#about" class="scroll-cue" aria-label="Scroll to content">Scroll</a>
-      </section>
-
-      <section class="section" id="about">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span>01</span>
-            <h2>About</h2>
-          </div>
-
-          <div class="about-layout">
-            <div class="about-copy reveal">
-              <p class="cv-summary">
-                Final-year Economics student at the University of Beira Interior. Since September 2026
-                I have been interning part-time at a consultancy in Leiria that prepares funding
-                applications for small companies.
-              </p>
-              <p class="lead">
-                There I build the financial models, check whether each company meets the eligibility
-                rules and write parts of the applications.
-              </p>
-              <p>
-                I work mostly with Excel, Power BI, R and Python. Outside work I build small analytical
-                projects: a study of price volatility in the CS2 skins market, a Value-at-Risk calculator
-                in Python and a study clock for a mini monitor.
-              </p>
-              <p>
-                Scouting and volunteering taught me to work in a team and to be someone people can count on.
-              </p>
-              <div class="about-signature">
-                <span>Economics lens</span>
-                <p>
-                  I like projects where a dataset becomes a decision: prices, incentives, risk,
-                  and behavior explained with clean evidence.
-                </p>
-              </div>
+      <section class="hero" id="home">
+        <div class="wrap hero-inner">
+          <div class="hero-text">
+            <h1 aria-label="Sim&atilde;o Fi&uacute;za">
+              <span class="word" aria-hidden="true"><span>Sim&atilde;o</span></span>
+              <span class="word" aria-hidden="true"><span>Fi&uacute;za</span></span>
+            </h1>
+            <p class="hero-sub">Economics &middot; Financial models &middot; Data</p>
+            <p class="hero-role">
+              I build <span class="rotator" id="rotator">financial models</span><span class="caret" aria-hidden="true"></span>
+            </p>
+            <div class="hero-actions">
+              <a class="btn-light" href="#experience">See my experience</a>
+              <a class="btn-outline" href="#contact">Get in touch</a>
             </div>
+          </div>
+        </div>
+        <picture class="hero-photo">
+          <source type="image/webp" srcset="assets/portrait-480.webp 480w, assets/portrait-920.webp 920w" sizes="(max-width: 760px) 80vw, 46vw" />
+          <img src="assets/portrait-920.webp" alt="Portrait of Sim&atilde;o Fi&uacute;za" width="920" height="1150" />
+        </picture>
+        <a class="scroll-cue" href="#services" aria-label="Scroll to content"><span>Scroll</span></a>
+      </section>
 
-            <aside class="about-panel reveal" aria-label="Profile snapshot">
-              <div class="panel-kicker">Profile snapshot</div>
-              <div class="panel-line">
-                <span>Current role</span>
-                <strong>Funding Applications Intern (part-time), Zeferino Consultores</strong>
-              </div>
-              <div class="panel-line">
-                <span>Studying</span>
-                <strong>Bachelor's in Economics, University of Beira Interior (final year)</strong>
-              </div>
-              <div class="mini-metrics">
-                <div>
-                  <strong data-count="4" data-suffix="">0</strong>
-                  <span>Portugal 2030 applications</span>
-                </div>
-                <div>
-                  <strong data-count="3" data-suffix=" M&euro;+">0 M&euro;+</strong>
-                  <span>Investment covered</span>
-                </div>
-              </div>
-            </aside>
+      <section class="tools" aria-label="Tools I work with">
+        <div class="marquee">
+          <div class="marquee-track">
+            <div class="tools-row">
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="6" width="20" height="20" rx="2"></rect><line x1="6" y1="12.7" x2="26" y2="12.7"></line><line x1="6" y1="19.3" x2="26" y2="19.3"></line><line x1="13" y1="6" x2="13" y2="26"></line></svg>
+            <span>Excel</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="16" width="4" height="10"></rect><rect x="14" y="10" width="4" height="16"></rect><rect x="21" y="5" width="4" height="21"></rect></svg>
+            <span>Power BI</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="15" rx="11" ry="7.5"></ellipse><path d="M13 26V11h5a3 3 0 0 1 0 6h-5M17.5 17l4 9"></path></svg>
+            <span>R</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5c-5 0-5 2-5 4v3h6v1H8c-2 0-3 2-3 5s1 5 3 5h2v-3c0-2 1.5-3.5 3.5-3.5h5c2 0 3.5-1.5 3.5-3.5V9c0-2-2-4-6-4z"></path><path d="M16 27c5 0 5-2 5-4v-3h-6v-1h9c2 0 3-2 3-5s-1-5-3-5h-2"></path></svg>
+            <span>Python</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="10" cy="8" r="2.6"></circle><circle cx="10" cy="24" r="2.6"></circle><circle cx="22" cy="12" r="2.6"></circle><path d="M10 10.6v10.8M22 14.6c0 4-12 3-12 6.8"></path></svg>
+            <span>GitHub</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M23 9.5A8.5 8.5 0 1 0 23 22.5"></path><line x1="7" y1="14" x2="18" y2="14"></line><line x1="7" y1="18" x2="18" y2="18"></line></svg>
+            <span>Portugal 2030</span>
+          </div>
+            </div>
+            <div class="tools-row" aria-hidden="true">
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="6" width="20" height="20" rx="2"></rect><line x1="6" y1="12.7" x2="26" y2="12.7"></line><line x1="6" y1="19.3" x2="26" y2="19.3"></line><line x1="13" y1="6" x2="13" y2="26"></line></svg>
+            <span>Excel</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="16" width="4" height="10"></rect><rect x="14" y="10" width="4" height="16"></rect><rect x="21" y="5" width="4" height="21"></rect></svg>
+            <span>Power BI</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="15" rx="11" ry="7.5"></ellipse><path d="M13 26V11h5a3 3 0 0 1 0 6h-5M17.5 17l4 9"></path></svg>
+            <span>R</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5c-5 0-5 2-5 4v3h6v1H8c-2 0-3 2-3 5s1 5 3 5h2v-3c0-2 1.5-3.5 3.5-3.5h5c2 0 3.5-1.5 3.5-3.5V9c0-2-2-4-6-4z"></path><path d="M16 27c5 0 5-2 5-4v-3h-6v-1h9c2 0 3-2 3-5s-1-5-3-5h-2"></path></svg>
+            <span>Python</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="10" cy="8" r="2.6"></circle><circle cx="10" cy="24" r="2.6"></circle><circle cx="22" cy="12" r="2.6"></circle><path d="M10 10.6v10.8M22 14.6c0 4-12 3-12 6.8"></path></svg>
+            <span>GitHub</span>
+          </div>
+          <div class="tool">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M23 9.5A8.5 8.5 0 1 0 23 22.5"></path><line x1="7" y1="14" x2="18" y2="14"></line><line x1="7" y1="18" x2="18" y2="18"></line></svg>
+            <span>Portugal 2030</span>
+          </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section-muted" id="experience">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span>02</span>
-            <h2>Experience</h2>
+      <section class="services" id="services">
+        <div class="wrap services-grid">
+          <div class="services-intro reveal">
+            <h2>Finance, Data, and Economics in one.</h2>
+            <p>
+              Final-year Economics student at the University of Beira Interior. Since September 2026
+              I have been interning part-time at a consultancy in Leiria that prepares funding
+              applications for small companies.
+            </p>
+            <div class="stats">
+              <div><strong data-count="4">4</strong><span>Portugal 2030 applications</span></div>
+              <div><strong data-count="3" data-suffix=" M&euro;+">3 M&euro;+</strong><span>Investment covered</span></div>
+              <div><strong data-count="3">3</strong><span>Financial models built</span></div>
+            </div>
+            <a class="text-link" href="cv_sim&atilde;o.pdf" target="_blank" rel="noopener">Download CV &rarr;</a>
           </div>
 
-          <ol class="timeline">
-            <li class="timeline-item reveal">
-              <div class="timeline-date">Sep 2026 &ndash; now</div>
-              <article>
-                <div class="timeline-title-row">
-                  <h3>Funding Applications Intern</h3>
-                  <span class="pill">Part-time</span>
-                </div>
-                <p class="org">Zeferino Consultores &middot; Leiria, Portugal</p>
-                <p>
-                  Consultancy that prepares public funding applications for small and medium-sized companies.
-                </p>
+          <div class="service-list">
+            <article class="service reveal">
+              <h3>01. Financial Models</h3>
+              <p>
+                Excel models with sales forecasts, running costs, cash flow, NPV, IRR and payback, built
+                for real investment projects.
+              </p>
+            </article>
+            <article class="service reveal">
+              <h3>02. Funding Applications</h3>
+              <p>
+                Portugal 2030 applications: eligibility checks on financial statements (SNC, NC-ME),
+                market analysis, operating plans and eligible-cost tables.
+              </p>
+            </article>
+            <article class="service reveal">
+              <h3>03. Data &amp; Research</h3>
+              <p>
+                Economic research with R and Python: price data, volatility, event studies and clear
+                charts and dashboards in Power BI.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience" id="experience">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Experience &amp; Education</h2>
+          </div>
+
+          <div class="rows">
+            <article class="row reveal">
+              <p class="row-date">Sep 2026 &ndash; Present</p>
+              <div>
+                <h3>Funding Applications Intern <span class="muted">(part-time)</span></h3>
+                <p class="row-org">Zeferino Consultores &middot; Leiria, Portugal</p>
                 <ul>
                   <li>Worked on 4 Portugal 2030 applications (SICE and PITD &ndash; Compete 2030) for restaurant and tourism projects worth over &euro;3M in total.</li>
                   <li>Built the Excel financial models for 3 of these projects: sales forecasts, running costs, cash flow, NPV, IRR and payback.</li>
                   <li>Went through clients' balance sheets and income statements (SNC and NC-ME) to confirm they met rules such as financial autonomy and the minimum share of own funds.</li>
-                  <li>Wrote parts of the applications, like the company profile, market analysis, operating plan and targets, following what each call scores.</li>
-                  <li>Filled in the investment and eligible-cost tables on the official forms.</li>
+                  <li>Wrote parts of the applications (company profile, market analysis, operating plan and targets) and filled in the investment and eligible-cost tables.</li>
                 </ul>
-              </article>
-            </li>
+              </div>
+            </article>
 
-            <li class="timeline-item reveal">
-              <div class="timeline-date">2024</div>
-              <article>
-                <div class="timeline-title-row">
-                  <h3>Front Desk Assistant</h3>
-                  <span class="pill">Summer job</span>
-                </div>
-                <p class="org">Escola de Condu&ccedil;&atilde;o Bagagem &middot; Batalha, Portugal</p>
+            <article class="row reveal">
+              <p class="row-date">2024</p>
+              <div>
+                <h3>Front Desk Assistant <span class="muted">(summer job)</span></h3>
+                <p class="row-org">Escola de Condu&ccedil;&atilde;o Bagagem &middot; Batalha, Portugal</p>
                 <ul>
                   <li>Took care of student registrations, lesson schedules and exam bookings.</li>
-                  <li>Was the first person clients spoke to, at the desk or on the phone, explaining licence types, prices and each step of the process.</li>
+                  <li>First point of contact at the desk and on the phone, explaining licence types, prices and each step of the process.</li>
                   <li>Handled payments and kept student records up to date.</li>
                 </ul>
-              </article>
-            </li>
+              </div>
+            </article>
 
-            <li class="timeline-item reveal">
-              <div class="timeline-date">Education</div>
-              <article>
-                <div class="timeline-title-row">
-                  <h3>Bachelor's Degree in Economics</h3>
-                  <span class="pill">Final year</span>
-                </div>
-                <p class="org">University of Beira Interior &middot; Covilh&atilde;, Portugal</p>
+            <article class="row reveal">
+              <p class="row-date">2023 &ndash; Present</p>
+              <div>
+                <h3>Bachelor's Degree in Economics <span class="muted">(final year)</span></h3>
+                <p class="row-org">University of Beira Interior &middot; Covilh&atilde;, Portugal</p>
                 <ul>
                   <li>Courses include Econometrics, Microeconomics, Macroeconomics, Financial Accounting and Statistics.</li>
-                  <li>Research report for the Sports Economics course on Valve's market power over Counter-Strike 2 skins, with the data and R analysis published on GitHub.</li>
                 </ul>
-              </article>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span>03</span>
-            <h2>Projects</h2>
-          </div>
-
-          <div class="project-grid">
-            <a class="project-card reveal" href="https://github.com/Yusa172/csgo-steam-market-volatility-analysis" target="_blank" rel="noopener" data-repo="Yusa172/csgo-steam-market-volatility-analysis">
-              <span class="project-number">01</span>
-              <h3>CS2 Steam Market Volatility Analysis</h3>
-              <p>
-                Data and R analysis behind my Sports Economics paper at UBI on Valve's market power over
-                Counter-Strike 2 skins. Python collects Steam Market price history; R measures volatility,
-                liquidity and the price effect of supply and demand shocks on skins, knives, cases and stickers.
-              </p>
-              <ul class="tag-list">
-                <li>R</li>
-                <li>Python</li>
-                <li>Event studies</li>
-                <li>Volatility</li>
-              </ul>
-              <span class="project-link">Open on GitHub &rarr;</span>
-            </a>
-
-            <a class="project-card reveal" href="https://github.com/Yusa172/Portfolio-Value-at-Risk-Calculator" target="_blank" rel="noopener" data-repo="Yusa172/Portfolio-Value-at-Risk-Calculator">
-              <span class="project-number">02</span>
-              <h3>Portfolio Value-at-Risk Calculator</h3>
-              <p>
-                Python library, in development, to measure the market risk of a portfolio with
-                Value-at-Risk and Expected Shortfall: historical, parametric and Monte Carlo methods,
-                backtesting and stress testing, built step by step with tests and CI.
-              </p>
-              <ul class="tag-list">
-                <li>Python</li>
-                <li>VaR &amp; ES</li>
-                <li>pytest</li>
-                <li>In development</li>
-              </ul>
-              <span class="project-link">Open on GitHub &rarr;</span>
-            </a>
-
-            <article class="project-card reveal">
-              <span class="project-number">03</span>
-              <h3>Study Clock</h3>
-              <p>
-                Study timer with study and break cycles, built to sit on a small secondary monitor next
-                to the computer. Large digits that fit any screen, focus mode, floating window, bell
-                alerts and a timer that stays accurate in the background.
-              </p>
-              <ul class="tag-list">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>GitHub Pages</li>
-              </ul>
-              <span class="project-links">
-                <a class="project-link" href="https://yusa172.github.io/Study-clock/" target="_blank" rel="noopener">Open the app &rarr;</a>
-                <a class="project-link" href="https://github.com/Yusa172/Study-clock" target="_blank" rel="noopener">GitHub &rarr;</a>
-              </span>
+              </div>
             </article>
           </div>
 
-          <div class="github-panel reveal">
-            <div>
-              <p class="eyebrow">Public GitHub</p>
-              <h3>Repositories from Yusa172</h3>
+          <div class="facts">
+            <div class="fact-block reveal">
+              <h3>Skills</h3>
+              <dl>
+                <dt>Financial analysis</dt>
+                <dd>Financial projections, cash flow, NPV, IRR, payback, financial statements (SNC, NC-ME)</dd>
+                <dt>Data &amp; tools</dt>
+                <dd>Excel (advanced), Power BI, R (econometrics), Python and C (basics), GitHub Pages</dd>
+                <dt>Research &amp; writing</dt>
+                <dd>Economic research, technical reports, institutional writing in Portuguese, business English</dd>
+                <dt>Personal</dt>
+                <dd>Teamwork, organisation, responsibility, problem solving, working to deadlines</dd>
+              </dl>
             </div>
-            <a class="button button-secondary" href="https://github.com/Yusa172" target="_blank" rel="noopener">GitHub profile</a>
-          </div>
-          <div class="repo-grid" id="repoGrid" aria-live="polite">
-            <noscript>
-              <p class="fallback">
-                JavaScript is disabled. Visit github.com/Yusa172 to see the public repository list.
-              </p>
-            </noscript>
-          </div>
-        </div>
-      </section>
 
-      <section class="section section-muted" id="courses">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span>04</span>
-            <h2>Courses &amp; Certifications</h2>
-          </div>
-
-          <div class="courses-intro reveal">
-            <p>
-              Extra training and certificates, focused on Excel, Power BI, business English,
-              decision support, digital skills and risk awareness.
-            </p>
-          </div>
-
-          <div class="course-grid">
-            <article class="course-card reveal course-card-featured">
-              <div class="course-year">2026</div>
-              <h3>Excel - Intermediate to Advanced</h3>
-              <p>
-                Santander Open Academy certificate focused on intermediate-to-advanced spreadsheet
-                work, data handling, and practical Excel workflows.
-              </p>
-              <ul class="course-list">
-                <li>Completed in April 2026 through Santander Open Academy.</li>
-                <li>8 hours across 2 modules with self-assessment.</li>
-                <li>Supports quantitative analysis, dashboards, and structured data work.</li>
-              </ul>
-              <ul class="tag-list">
-                <li>Excel</li>
-                <li>Data analysis</li>
-                <li>Spreadsheets</li>
-              </ul>
-            </article>
-
-            <article class="course-card reveal">
-              <div class="course-year">2026</div>
-              <h3>Excel</h3>
-              <p>
-                Santander Open Academy certificate strengthening Microsoft Excel fundamentals
-                for academic and analytical work.
-              </p>
-              <ul class="course-list">
-                <li>Completed in March 2026.</li>
-                <li>Credential focused on Microsoft Excel skills.</li>
-              </ul>
-              <ul class="tag-list">
-                <li>Microsoft Excel</li>
-                <li>Analysis</li>
-              </ul>
-            </article>
-
-            <article class="course-card reveal">
-              <div class="course-year">2026</div>
-              <h3>Business English, Part 1</h3>
-              <p>
-                Santander Open Academy certificate supporting professional communication
-                and business-oriented English.
-              </p>
-              <ul class="course-list">
-                <li>Completed in March 2026.</li>
-                <li>8 hours across 2 modules with self-assessment.</li>
-              </ul>
-              <ul class="tag-list">
-                <li>English</li>
-                <li>Business communication</li>
-              </ul>
-            </article>
-
-            <article class="course-card reveal">
-              <div class="course-year">2025</div>
-              <h3>Occupational Health and Risk Prevention</h3>
-              <p>
-                University of Beira Interior training on productivity, fatigue-related risks,
-                work organization, and prevention best practices.
-              </p>
-              <ul class="course-list">
-                <li>Studied work-time management principles and productivity.</li>
-                <li>Examined fatigue-related risk factors and work organization.</li>
-                <li>Reviewed regulatory context and prevention best practices.</li>
-              </ul>
-              <ul class="tag-list">
-                <li>Risk prevention</li>
-                <li>Productivity</li>
-                <li>Work organization</li>
-              </ul>
-            </article>
-
-            <article class="course-card reveal">
-              <div class="course-year">2024</div>
-              <h3>Data Visualisation for Decision-Making</h3>
-              <p>
-                Course-based work focused on transforming information into dashboards,
-                metrics, and decision-support visuals.
-              </p>
-              <ul class="course-list">
-                <li>Analysed and processed information using Excel.</li>
-                <li>Built dashboards and visualisations in Power BI.</li>
-                <li>Applied metrics and indicators to support decision-making.</li>
-                <li>Developed quantitative and data interpretation skills.</li>
-              </ul>
-              <ul class="tag-list">
-                <li>Excel</li>
-                <li>Power BI</li>
-                <li>Dashboards</li>
-                <li>Indicators</li>
-              </ul>
-            </article>
-
-            <article class="course-card reveal">
-              <div class="course-year">2023</div>
-              <h3>Shift to Digital Event Winner</h3>
-              <p>
-                STAR Junior Enterprise event certificate and winner recognition, connected to
-                web development, communication, LinkedIn, and cybersecurity topics.
-              </p>
-              <ul class="course-list">
-                <li>Participated in talks on HTML, CSS, JavaScript, communication, LinkedIn, and cybersecurity.</li>
-                <li>Competed for the Critical Software prize during the event.</li>
-              </ul>
-              <ul class="tag-list">
-                <li>Digital skills</li>
-                <li>HTML/CSS</li>
-                <li>JavaScript</li>
-                <li>Achievement</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="skills">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span>05</span>
-            <h2>Skills</h2>
-          </div>
-
-          <div class="skills-grid">
-            <article class="skill-block reveal">
-              <h3>Financial Analysis</h3>
-              <ul class="skill-list">
-                <li>Financial projections</li>
-                <li>Cash flow</li>
-                <li>NPV</li>
-                <li>IRR</li>
-                <li>Payback</li>
-                <li>Financial statements (SNC, NC-ME)</li>
-              </ul>
-            </article>
-            <article class="skill-block reveal">
-              <h3>Data & Tools</h3>
-              <ul class="skill-list">
-                <li>Excel (advanced)</li>
-                <li>Power BI</li>
-                <li>R (econometrics)</li>
-                <li>Python (basics)</li>
-                <li>C (basics)</li>
-                <li>GitHub Pages</li>
-              </ul>
-            </article>
-            <article class="skill-block reveal">
-              <h3>Research & Writing</h3>
-              <ul class="skill-list">
-                <li>Economic research</li>
-                <li>Technical reports</li>
-                <li>Institutional writing in Portuguese</li>
-                <li>Business English</li>
-              </ul>
-            </article>
-            <article class="skill-block reveal">
-              <h3>Personal</h3>
-              <ul class="skill-list">
-                <li>Teamwork</li>
-                <li>Organisation</li>
-                <li>Responsibility</li>
-                <li>Problem solving</li>
-                <li>Working to deadlines</li>
-              </ul>
-            </article>
-            <article class="skill-block reveal">
+            <div class="fact-block reveal">
               <h3>Languages</h3>
-              <ul class="skill-list">
-                <li>Portuguese &middot; native</li>
-                <li>English &middot; B2, C1 certification in progress</li>
-              </ul>
-            </article>
-            <article class="skill-block reveal">
-              <h3>Interests</h3>
-              <ul class="skill-list">
-                <li>Financial markets</li>
-                <li>Economic policy</li>
-                <li>Technology</li>
-                <li>Entrepreneurship</li>
-                <li>Scouting &amp; volunteering</li>
-              </ul>
-            </article>
+              <p>Portuguese &middot; native<br />English &middot; B2, C1 certification in progress</p>
+              <h3 class="fact-sub">Interests</h3>
+              <dl>
+                <dt>Financial markets</dt>
+                <dd>I keep up with the markets and economic news.</dd>
+                <dt>Economics and politics</dt>
+                <dd>Mostly economic policy, which I read about and discuss in English.</dd>
+                <dt>Entrepreneurship</dt>
+                <dd>How small companies grow and pay for new investment.</dd>
+                <dt>Scouting and volunteering</dt>
+                <dd>Group activities where everyone has a job to do.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects" id="projects">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Selected Projects</h2>
+            <a class="btn-dark" href="https://github.com/Yusa172?tab=repositories" target="_blank" rel="noopener">View all projects</a>
           </div>
 
-          <article class="education reveal">
-            <span>2023</span>
-            <div>
-              <h3>Bachelor's Degree in Economics</h3>
-              <p>University of Beira Interior &middot; Covilh&atilde;, Portugal</p>
-              <p>2023 &ndash; present &middot; final-year student</p>
+          <article class="project reveal">
+            <a class="project-media" href="https://github.com/Yusa172/csgo-steam-market-volatility-analysis" target="_blank" rel="noopener">
+              <img src="assets/projects/cs2-paracord.png" alt="Price chart of four Paracord knives on the Steam Market from 2020 to 2026, with the CS2 announcement, release and trade-up update marked" width="2682" height="1421" loading="lazy" />
+            </a>
+            <div class="project-info">
+              <span class="project-num">01</span>
+              <div>
+                <h3>Market Power and Pricing Dynamics in a Digital Marketplace</h3>
+                <p>
+                  Research report on market power on a digital platform: how prices are set and how supply,
+                  demand and shocks move them, using the Counter-Strike 2 skins market as the case. I gathered
+                  historical price data with Python and analysed it in R to measure volatility and the effect of
+                  changes in market structure.
+                </p>
+                <ul class="tags"><li>R</li><li>Python</li><li>Event studies</li><li>Volatility</li></ul>
+              </div>
+              <a class="text-link" href="https://github.com/Yusa172/csgo-steam-market-volatility-analysis" target="_blank" rel="noopener">GitHub &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <a class="project-media project-media-var" href="https://github.com/Yusa172/Portfolio-Value-at-Risk-Calculator" target="_blank" rel="noopener" aria-label="Portfolio Value-at-Risk Calculator on GitHub">
+              <svg class="var-chart" viewBox="0 0 800 380" role="img" aria-label="Illustration: histogram of portfolio returns with the 99% VaR cut-off marking the left tail">
+                <g class="var-bars"></g>
+                <line class="var-axis" x1="40" y1="330" x2="760" y2="330"></line>
+                <line class="var-cut" x1="196" y1="40" x2="196" y2="330"></line>
+                <text class="var-label" x="206" y="62">VaR 99%</text>
+                <text class="var-label var-label-muted" x="52" y="300">ES</text>
+                <text class="var-label var-label-muted" x="560" y="362">daily portfolio return</text>
+              </svg>
+            </a>
+            <div class="project-info">
+              <span class="project-num">02</span>
+              <div>
+                <h3>Portfolio Value-at-Risk Calculator <span class="badge">Ongoing</span></h3>
+                <p>
+                  Python library to measure the market risk of a portfolio with Value-at-Risk and Expected
+                  Shortfall: historical, parametric and Monte Carlo methods, backtesting and stress testing,
+                  built step by step with tests and CI.
+                </p>
+                <ul class="tags"><li>Python</li><li>VaR &amp; ES</li><li>pytest</li><li>GitHub Actions</li></ul>
+              </div>
+              <a class="text-link" href="https://github.com/Yusa172/Portfolio-Value-at-Risk-Calculator" target="_blank" rel="noopener">GitHub &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <a class="project-media" href="https://yusa172.github.io/Study-clock/" target="_blank" rel="noopener">
+              <img src="assets/projects/study-clock.png" alt="Study Clock running in dark mode, showing 24:59 with the cycle settings beside it" width="1920" height="1080" loading="lazy" />
+            </a>
+            <div class="project-info">
+              <span class="project-num">03</span>
+              <div>
+                <h3>Study Clock <span class="badge">Ongoing</span></h3>
+                <p>
+                  Study timer with study and break cycles, made to sit on a small secondary monitor next to
+                  the computer. Large digits that fit any screen, focus mode, floating window and bell alerts.
+                </p>
+                <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li></ul>
+              </div>
+              <span class="link-pair">
+                <a class="text-link" href="https://yusa172.github.io/Study-clock/" target="_blank" rel="noopener">Open app &rarr;</a>
+                <a class="text-link" href="https://github.com/Yusa172/Study-clock" target="_blank" rel="noopener">GitHub &rarr;</a>
+              </span>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section contact-section" id="contact">
-        <div class="container">
-          <div class="section-heading reveal">
-            <span>06</span>
-            <h2>Contact</h2>
+      <section class="courses" id="courses">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Courses &amp; Certifications</h2>
           </div>
+          <p class="courses-intro reveal">
+            Extra training and certificates, focused on Excel, Power BI, business English, decision support,
+            digital skills and risk awareness.
+          </p>
 
-          <div class="contact-card reveal">
-            <p class="contact-copy">
-              If a model or a chart can make a decision less vague, I probably want to build it.
-            </p>
-            <a class="contact-email" href="mailto:simaofiuza.cv@gmail.com">simaofiuza.cv@gmail.com</a>
-            <div class="contact-actions">
-              <button class="button button-primary" id="copyEmail" type="button">Copy email</button>
-              <a class="button button-secondary" href="https://www.linkedin.com/in/sim%C3%A3o-fi%C3%BAza" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="button button-secondary" href="https://github.com/Yusa172" target="_blank" rel="noopener">GitHub</a>
-              <a class="button button-secondary" href="cv_simão.pdf" target="_blank" rel="noopener">CV</a>
-            </div>
-            <p class="local-time">Leiria, Portugal · local time: <span id="localTime">--:--</span></p>
+          <div class="course-grid">
+            <article class="course course-featured reveal">
+              <p class="course-year">2026</p>
+              <h3>Excel &ndash; Intermediate to Advanced</h3>
+              <p class="course-desc">
+                Santander Open Academy certificate focused on intermediate-to-advanced spreadsheet work, data
+                handling and practical Excel workflows.
+              </p>
+              <ul class="course-list">
+                <li>Completed in April 2026 through Santander Open Academy.</li>
+                <li>8 hours across 2 modules with self-assessment.</li>
+                <li>Supports quantitative analysis, dashboards and structured data work.</li>
+              </ul>
+              <ul class="tags"><li>Excel</li><li>Data analysis</li><li>Spreadsheets</li></ul>
+            </article>
+
+            <article class="course reveal">
+              <p class="course-year">2026</p>
+              <h3>Excel</h3>
+              <p class="course-desc">
+                Santander Open Academy certificate strengthening Microsoft Excel fundamentals for academic and
+                analytical work.
+              </p>
+              <ul class="course-list">
+                <li>Completed in March 2026.</li>
+                <li>Credential focused on Microsoft Excel skills.</li>
+              </ul>
+              <ul class="tags"><li>Microsoft Excel</li><li>Analysis</li></ul>
+            </article>
+
+            <article class="course reveal">
+              <p class="course-year">2026</p>
+              <h3>Business English, Part 1</h3>
+              <p class="course-desc">
+                Santander Open Academy certificate supporting professional communication and business-oriented
+                English.
+              </p>
+              <ul class="course-list">
+                <li>Completed in March 2026.</li>
+                <li>8 hours across 2 modules with self-assessment.</li>
+              </ul>
+              <ul class="tags"><li>English</li><li>Business communication</li></ul>
+            </article>
+
+            <article class="course reveal">
+              <p class="course-year">2025</p>
+              <h3>Occupational Health and Risk Prevention</h3>
+              <p class="course-desc">
+                University of Beira Interior training on productivity, fatigue-related risks, work organisation
+                and prevention best practices.
+              </p>
+              <ul class="course-list">
+                <li>Studied work-time management principles and productivity.</li>
+                <li>Examined fatigue-related risk factors and work organisation.</li>
+                <li>Reviewed regulatory context and prevention best practices.</li>
+              </ul>
+              <ul class="tags"><li>Risk prevention</li><li>Productivity</li><li>Work organisation</li></ul>
+            </article>
+
+            <article class="course reveal">
+              <p class="course-year">2024</p>
+              <h3>Data Visualisation for Decision-Making</h3>
+              <p class="course-desc">
+                University of Beira Interior course on turning information into dashboards, metrics and
+                decision-support visuals.
+              </p>
+              <ul class="course-list">
+                <li>Analysed and processed information using Excel.</li>
+                <li>Built dashboards and visualisations in Power BI.</li>
+                <li>Applied metrics and indicators to support decision-making.</li>
+              </ul>
+              <ul class="tags"><li>Excel</li><li>Power BI</li><li>Dashboards</li><li>Indicators</li></ul>
+            </article>
+
+            <article class="course reveal">
+              <p class="course-year">2023</p>
+              <h3>Shift to Digital Event &ndash; Winner</h3>
+              <p class="course-desc">
+                STAR Junior Enterprise event certificate and winner recognition, covering web development,
+                communication, LinkedIn and cybersecurity.
+              </p>
+              <ul class="course-list">
+                <li>Took part in talks on HTML, CSS, JavaScript, communication, LinkedIn and cybersecurity.</li>
+                <li>Competed for the Critical Software prize during the event.</li>
+              </ul>
+              <ul class="tags"><li>Digital skills</li><li>HTML/CSS</li><li>JavaScript</li><li>Achievement</li></ul>
+            </article>
           </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="wrap contact-inner reveal">
+          <p class="contact-kicker">Contact me</p>
+          <h2>Let's talk.</h2>
+          <p class="contact-quote">If a model or a chart can make a decision less vague, I probably want to build it.</p>
+          <a class="contact-mail" href="mailto:simaofiuza.cv@gmail.com">simaofiuza.cv@gmail.com</a>
+          <div class="contact-links">
+            <button class="btn-light" id="copyEmail" type="button">Copy email</button>
+            <a class="btn-outline" href="https://www.linkedin.com/in/sim%C3%A3o-fi%C3%BAza" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn-outline" href="https://github.com/Yusa172" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn-outline" href="cv_sim&atilde;o.pdf" target="_blank" rel="noopener">CV</a>
+          </div>
+          <p class="local-time">Leiria, Portugal &middot; local time: <span id="localTime">--:--</span></p>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="container footer-inner">
-        <p>&copy; <span id="year">2026</span> Sim&atilde;o Fi&uacute;za</p>
-        <a href="#home">Back to top</a>
+      <div class="wrap footer-inner">
+        <span>&copy; <span id="year">2026</span> Sim&atilde;o Fi&uacute;za</span>
+        <span>Leiria, Portugal</span>
       </div>
     </footer>
 
@@ -564,7 +462,8 @@
       <button class="command-backdrop" type="button" data-close-command aria-label="Close command menu"></button>
       <div class="command-panel" role="dialog" aria-modal="true" aria-label="Command menu">
         <input id="commandInput" type="search" placeholder="Search sections and links" autocomplete="off" />
-        <div class="command-list" id="commandList" role="listbox"></div>
+        <div class="command-list" id="commandList"></div>
+        <p class="command-hint"><kbd>&uarr;</kbd><kbd>&darr;</kbd> to move &middot; <kbd>Enter</kbd> to open &middot; <kbd>Esc</kbd> to close</p>
       </div>
     </div>
 

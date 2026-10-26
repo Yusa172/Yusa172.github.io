@@ -1,76 +1,39 @@
 (function () {
-  var root = document.documentElement;
-  var body = document.body;
+  var header = document.getElementById("header");
+  var hero = document.getElementById("home");
+  var nav = document.getElementById("nav");
+  var menuBtn = document.getElementById("menuBtn");
   var progress = document.getElementById("progress");
-  var themeToggle = document.getElementById("themeToggle");
-  var menuToggle = document.getElementById("menuToggle");
-  var navLinks = document.getElementById("navLinks");
-  var copyEmail = document.getElementById("copyEmail");
-  var localTime = document.getElementById("localTime");
+  var rotator = document.getElementById("rotator");
   var year = document.getElementById("year");
+  var copyButton = document.getElementById("copyEmail");
+  var localTime = document.getElementById("localTime");
   var command = document.getElementById("command");
   var openCommand = document.getElementById("openCommand");
   var commandInput = document.getElementById("commandInput");
   var commandList = document.getElementById("commandList");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var email = "simaofiuza.cv@gmail.com";
 
-  var fallbackRepos = [
-    {
-      name: "csgo-steam-market-volatility-analysis",
-      full_name: "Yusa172/csgo-steam-market-volatility-analysis",
-      description: "Steam Market price-history collection and volatility analysis for CS2 digital assets.",
-      html_url: "https://github.com/Yusa172/csgo-steam-market-volatility-analysis",
-      language: "R",
-      stargazers_count: 0,
-      forks_count: 0,
-      pushed_at: "2026-05-15T16:03:09Z"
-    },
-    {
-      name: "Portfolio-Value-at-Risk-Calculator",
-      full_name: "Yusa172/Portfolio-Value-at-Risk-Calculator",
-      description: "Python library, in development, for portfolio Value-at-Risk and Expected Shortfall.",
-      html_url: "https://github.com/Yusa172/Portfolio-Value-at-Risk-Calculator",
-      language: "Python",
-      stargazers_count: 0,
-      forks_count: 0,
-      pushed_at: "2026-10-25T20:14:01Z"
-    },
-    {
-      name: "Study-clock",
-      full_name: "Yusa172/Study-clock",
-      description: "Study timer with study and break cycles, built for a small secondary monitor.",
-      html_url: "https://github.com/Yusa172/Study-clock",
-      language: "HTML",
-      stargazers_count: 0,
-      forks_count: 0,
-      pushed_at: "2026-10-23T10:21:24Z"
-    }
-  ];
-
   var commands = [
-    { label: "About", hint: "Profile and summary", href: "#about" },
+    { label: "About", hint: "What I do", href: "#services" },
     { label: "Experience", hint: "Work and education", href: "#experience" },
-    { label: "Projects", hint: "Featured work", href: "#projects" },
+    { label: "Projects", hint: "Selected projects", href: "#projects" },
     { label: "Courses", hint: "Courses and certifications", href: "#courses" },
-    { label: "Skills", hint: "Tools and education", href: "#skills" },
     { label: "Contact", hint: "Email and links", href: "#contact" },
     { label: "Open CV", hint: "PDF resume", href: "cv_simão.pdf", external: true },
-    { label: "GitHub", hint: "Yusa172 repositories", href: "https://github.com/Yusa172", external: true },
+    { label: "Market power & pricing study", hint: "CS2 skins market", href: "https://github.com/Yusa172/csgo-steam-market-volatility-analysis", external: true },
+    { label: "VaR calculator", hint: "GitHub", href: "https://github.com/Yusa172/Portfolio-Value-at-Risk-Calculator", external: true },
+    { label: "Study Clock", hint: "Open the app", href: "https://yusa172.github.io/Study-clock/", external: true },
+    { label: "GitHub", hint: "Yusa172", href: "https://github.com/Yusa172", external: true },
     { label: "LinkedIn", hint: "Professional profile", href: "https://www.linkedin.com/in/sim%C3%A3o-fi%C3%BAza", external: true },
-    { label: "Copy email", hint: email, action: copyEmailAddress },
-    { label: "Toggle theme", hint: "Light or dark mode", action: toggleTheme }
+    { label: "Copy email", hint: email, action: copyEmail }
   ];
-  var activeCommandIndex = 0;
+  var activeIndex = 0;
 
-  function setTheme(theme) {
-    root.setAttribute("data-theme", theme);
-    try {
-      localStorage.setItem("simao-portfolio-theme-v3", theme);
-    } catch (error) {}
-  }
-
-  function toggleTheme() {
-    setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  function updateHeader() {
+    var heroEnd = hero.offsetHeight - header.offsetHeight;
+    header.classList.toggle("is-solid", window.scrollY > heroEnd || nav.classList.contains("is-open"));
   }
 
   function updateProgress() {
@@ -79,28 +42,173 @@
     progress.style.transform = "scaleX(" + Math.min(1, Math.max(0, ratio)) + ")";
   }
 
-  function toggleMenu(force) {
-    var willOpen = typeof force === "boolean" ? force : !navLinks.classList.contains("is-open");
-    navLinks.classList.toggle("is-open", willOpen);
-    menuToggle.setAttribute("aria-expanded", String(willOpen));
-    body.classList.toggle("menu-open", willOpen);
+  function onScroll() {
+    updateHeader();
+    updateProgress();
   }
 
-  function copyEmailAddress() {
+  function setMenu(open) {
+    nav.classList.toggle("is-open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    updateHeader();
+  }
+
+  // Types and deletes each phrase in turn after the hero intro finishes.
+  // Text changes in place, so it also runs when reduced motion is requested.
+  function startRotator() {
+    if (!rotator) return;
+    var phrases = ["financial models", "funding applications", "data analysis in R", "risk tools in Python"];
+    var phraseIndex = 0;
+    var text = phrases[0];
+    var deleting = true;
+
+    function tick() {
+      var target = phrases[phraseIndex];
+      if (deleting) {
+        text = text.slice(0, -1);
+        if (!text) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      } else {
+        text = target.slice(0, text.length + 1);
+      }
+      rotator.textContent = text;
+
+      var delay = deleting ? 40 : 75;
+      if (!deleting && text === phrases[phraseIndex]) {
+        deleting = true;
+        delay = 2200;
+      }
+      window.setTimeout(tick, delay);
+    }
+
+    window.setTimeout(tick, 2600);
+  }
+
+  function countUp(element) {
+    var target = Number(element.dataset.count);
+    var suffix = element.dataset.suffix || "";
+    var start = performance.now();
+
+    function frame(now) {
+      var t = Math.min(1, (now - start) / 1000);
+      var eased = 1 - Math.pow(1 - t, 3);
+      element.textContent = Math.round(target * eased) + suffix;
+      if (t < 1) requestAnimationFrame(frame);
+    }
+
+    element.textContent = "0" + suffix;
+    requestAnimationFrame(frame);
+  }
+
+  // Histogram of simulated daily returns; bars left of the VaR cut-off form the tail.
+  function drawVarChart() {
+    var group = document.querySelector(".var-bars");
+    if (!group) return;
+    var bins = 36;
+    var left = 48;
+    var width = 704;
+    var base = 330;
+    var barWidth = width / bins;
+    var cutX = 196;
+    var ns = "http://www.w3.org/2000/svg";
+
+    for (var i = 0; i < bins; i++) {
+      var x = (i - bins * 0.55) / (bins * 0.17);
+      var density = Math.exp(-x * x / 2) + 0.06 * Math.exp(-Math.pow(x + 2.6, 2) / 0.5);
+      var height = Math.max(4, density * 260);
+      var rect = document.createElementNS(ns, "rect");
+      var rx = left + i * barWidth;
+      rect.setAttribute("x", rx.toFixed(1));
+      rect.setAttribute("y", (base - height).toFixed(1));
+      rect.setAttribute("width", (barWidth - 3).toFixed(1));
+      rect.setAttribute("height", height.toFixed(1));
+      rect.style.transitionDelay = i * 18 + "ms";
+      if (rx + barWidth <= cutX + 1) rect.setAttribute("class", "is-tail");
+      group.appendChild(rect);
+    }
+  }
+
+  function observe() {
+    var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    var counters = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
+    var chart = document.querySelector(".var-chart");
+
+    // Cards that share a parent come in one after another.
+    reveals.forEach(function (item) {
+      var siblings = Array.prototype.filter.call(item.parentNode.children, function (el) {
+        return el.classList.contains("reveal");
+      });
+      item.style.setProperty("--delay", Math.min(siblings.indexOf(item), 4) * 110 + "ms");
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      reveals.forEach(function (item) { item.classList.add("is-visible"); });
+      if (chart) chart.classList.add("is-drawn");
+      return;
+    }
+
+    if (reduceMotion) {
+      reveals.forEach(function (item) { item.classList.add("is-visible"); });
+    } else {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      reveals.forEach(function (item) { revealObserver.observe(item); });
+    }
+
+    var countObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        countUp(entry.target);
+        countObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (item) { countObserver.observe(item); });
+
+    if (chart) {
+      var chartObserver = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        chart.classList.add("is-drawn");
+        chartObserver.disconnect();
+      }, { threshold: 0.35 });
+      chartObserver.observe(chart);
+    }
+
+    // Underline the nav link of the section in view.
+    var links = Array.prototype.slice.call(nav.querySelectorAll("a"));
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          link.classList.toggle("is-active", link.getAttribute("href") === "#" + entry.target.id);
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    links.forEach(function (link) {
+      var section = document.querySelector(link.getAttribute("href"));
+      if (section) sectionObserver.observe(section);
+    });
+  }
+
+  function copyEmail() {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(email).then(markCopied).catch(markCopied);
+      navigator.clipboard.writeText(email).then(markCopied, markCopied);
     } else {
       markCopied();
     }
   }
 
   function markCopied() {
-    if (!copyEmail) return;
-    var original = copyEmail.textContent;
-    copyEmail.textContent = "Copied";
-    window.setTimeout(function () {
-      copyEmail.textContent = original;
-    }, 1500);
+    if (!copyButton) return;
+    copyButton.textContent = "Copied";
+    window.setTimeout(function () { copyButton.textContent = "Copy email"; }, 1500);
   }
 
   function updateLocalTime() {
@@ -112,109 +220,41 @@
     }).format(new Date());
   }
 
-  function revealOnScroll() {
-    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
-    if (!("IntersectionObserver" in window)) {
-      items.forEach(function (item) {
-        item.classList.add("is-visible");
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14 });
-
-    items.forEach(function (item) {
-      observer.observe(item);
-    });
-  }
-
-  function animateMetrics() {
-    var metrics = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
-    if (!("IntersectionObserver" in window)) {
-      metrics.forEach(setFinalMetric);
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        countMetric(entry.target);
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.55 });
-
-    metrics.forEach(function (metric) {
-      observer.observe(metric);
-    });
-  }
-
-  function setFinalMetric(element) {
-    element.textContent = formatMetricValue(Number(element.dataset.count)) + (element.dataset.suffix || "");
-  }
-
-  function formatMetricValue(value) {
-    return value >= 10000 ? value.toLocaleString("en-US") : String(value);
-  }
-
-  function countMetric(element) {
-    var target = Number(element.dataset.count || 0);
-    var suffix = element.dataset.suffix || "";
-    var start = performance.now();
-    var duration = target > 1000 ? 1100 : 820;
-
-    function frame(now) {
-      var progressValue = Math.min(1, (now - start) / duration);
-      var eased = 1 - Math.pow(1 - progressValue, 3);
-      var value = Math.round(target * eased);
-      element.textContent = formatMetricValue(value) + suffix;
-      if (progressValue < 1) requestAnimationFrame(frame);
-    }
-
-    requestAnimationFrame(frame);
-  }
-
   function openCommandMenu() {
     command.hidden = false;
     commandInput.value = "";
-    activeCommandIndex = 0;
+    activeIndex = 0;
     renderCommands(commands);
-    window.setTimeout(function () {
-      commandInput.focus();
-    }, 0);
+    window.setTimeout(function () { commandInput.focus(); }, 0);
   }
 
   function closeCommandMenu() {
     command.hidden = true;
   }
 
+  function filteredCommands() {
+    var query = commandInput.value.trim().toLowerCase();
+    if (!query) return commands;
+    return commands.filter(function (item) {
+      return (item.label + " " + item.hint).toLowerCase().indexOf(query) !== -1;
+    });
+  }
+
   function renderCommands(items) {
     commandList.textContent = "";
-
     items.forEach(function (item, index) {
       var button = document.createElement("button");
       button.type = "button";
-      button.className = "command-item" + (index === activeCommandIndex ? " is-active" : "");
-
+      button.className = "command-item" + (index === activeIndex ? " is-active" : "");
       var label = document.createElement("strong");
       label.textContent = item.label;
       var hint = document.createElement("span");
-      hint.textContent = item.hint || "";
-
+      hint.textContent = item.hint;
       button.appendChild(label);
       button.appendChild(hint);
-      button.addEventListener("click", function () {
-        runCommand(item);
-      });
+      button.addEventListener("click", function () { runCommand(item); });
       commandList.appendChild(button);
     });
-
     if (!items.length) {
       var empty = document.createElement("div");
       empty.className = "command-item";
@@ -223,144 +263,73 @@
     }
   }
 
-  function filteredCommands() {
-    var query = commandInput.value.trim().toLowerCase();
-    if (!query) return commands;
-    return commands.filter(function (item) {
-      return (item.label + " " + (item.hint || "")).toLowerCase().includes(query);
-    });
-  }
-
   function runCommand(item) {
     closeCommandMenu();
-
     if (item.action) {
       item.action();
-      return;
-    }
-
-    if (item.external) {
+    } else if (item.external) {
       window.open(item.href, "_blank", "noopener");
-      return;
+    } else {
+      document.querySelector(item.href).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     }
-
-    document.querySelector(item.href).scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  function createRepoCard(repo) {
-    var card = document.createElement("a");
-    card.className = "repo-card";
-    card.href = repo.html_url;
-    card.target = "_blank";
-    card.rel = "noopener";
-
-    var title = document.createElement("h4");
-    title.textContent = repo.name;
-
-    var desc = document.createElement("p");
-    desc.textContent = repo.description || "Public repository by Simão Fiúza.";
-
-    var meta = document.createElement("div");
-    meta.className = "repo-meta";
-
-    var language = document.createElement("span");
-    language.textContent = repo.language || "Code";
-    var stars = document.createElement("span");
-    stars.textContent = "Stars " + (repo.stargazers_count || 0);
-    var forks = document.createElement("span");
-    forks.textContent = "Forks " + (repo.forks_count || 0);
-
-    meta.appendChild(language);
-    meta.appendChild(stars);
-    meta.appendChild(forks);
-    card.appendChild(title);
-    card.appendChild(desc);
-    card.appendChild(meta);
-    return card;
-  }
-
-  function renderRepos(repos) {
-    var repoGrid = document.getElementById("repoGrid");
-    if (!repoGrid) return;
-    repoGrid.textContent = "";
-
-    repos
-      .filter(function (repo) {
-        return !repo.fork && repo.name !== "Yusa172";
-      })
-      .sort(function (a, b) {
-        return new Date(b.pushed_at || b.updated_at || 0) - new Date(a.pushed_at || a.updated_at || 0);
-      })
-      .slice(0, 6)
-      .forEach(function (repo) {
-        repoGrid.appendChild(createRepoCard(repo));
-      });
-  }
-
-  function loadRepos() {
-    fetch("https://api.github.com/users/Yusa172/repos?sort=updated&per_page=100", {
-      headers: { Accept: "application/vnd.github+json" }
-    })
-      .then(function (response) {
-        if (!response.ok) throw new Error("GitHub request failed");
-        return response.json();
-      })
-      .then(renderRepos)
-      .catch(function () {
-        renderRepos(fallbackRepos);
-      });
-  }
-
-  window.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
-  updateProgress();
-
-  if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
-  if (menuToggle) menuToggle.addEventListener("click", function () { toggleMenu(); });
-  if (copyEmail) copyEmail.addEventListener("click", copyEmailAddress);
-  if (openCommand) openCommand.addEventListener("click", openCommandMenu);
-
-  navLinks.addEventListener("click", function (event) {
-    if (event.target.tagName === "A") toggleMenu(false);
+  menuBtn.addEventListener("click", function () {
+    setMenu(!nav.classList.contains("is-open"));
   });
 
-  document.addEventListener("click", function (event) {
-    if (event.target.matches("[data-close-command]")) closeCommandMenu();
+  nav.addEventListener("click", function (event) {
+    if (event.target.tagName === "A") setMenu(false);
+  });
+
+  openCommand.addEventListener("click", openCommandMenu);
+  if (copyButton) copyButton.addEventListener("click", copyEmail);
+
+  command.addEventListener("click", function (event) {
+    if (event.target.hasAttribute("data-close-command")) closeCommandMenu();
+  });
+
+  commandInput.addEventListener("input", function () {
+    activeIndex = 0;
+    renderCommands(filteredCommands());
   });
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "/" && !event.target.matches("input, textarea")) || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k")) {
+    var typing = event.target instanceof Element && event.target.matches("input, textarea");
+    if ((event.key === "/" && !typing) || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k")) {
       event.preventDefault();
       openCommandMenu();
+      return;
     }
 
     if (event.key === "Escape") {
       closeCommandMenu();
-      toggleMenu(false);
+      setMenu(false);
+      return;
     }
 
     if (!command.hidden && (event.key === "ArrowDown" || event.key === "ArrowUp" || event.key === "Enter")) {
       var items = filteredCommands();
       if (!items.length) return;
-      if (event.key === "ArrowDown") activeCommandIndex = (activeCommandIndex + 1) % items.length;
-      if (event.key === "ArrowUp") activeCommandIndex = (activeCommandIndex - 1 + items.length) % items.length;
-      if (event.key === "Enter") runCommand(items[activeCommandIndex]);
       event.preventDefault();
+      if (event.key === "ArrowDown") activeIndex = (activeIndex + 1) % items.length;
+      if (event.key === "ArrowUp") activeIndex = (activeIndex - 1 + items.length) % items.length;
+      if (event.key === "Enter") {
+        runCommand(items[activeIndex]);
+        return;
+      }
       renderCommands(items);
     }
   });
 
-  if (commandInput) {
-    commandInput.addEventListener("input", function () {
-      activeCommandIndex = 0;
-      renderCommands(filteredCommands());
-    });
-  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
 
   if (year) year.textContent = String(new Date().getFullYear());
   updateLocalTime();
   window.setInterval(updateLocalTime, 30000);
-  revealOnScroll();
-  animateMetrics();
-  loadRepos();
+  drawVarChart();
+  observe();
+  startRotator();
+  onScroll();
 })();
