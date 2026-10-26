@@ -514,7 +514,12 @@ p {
   color: var(--ink);
 }
 
+.badge-text {
+  line-height: 1.35;
+}
+
 .badge-dot {
+  flex: none;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -811,7 +816,7 @@ p {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -902,6 +907,19 @@ p {
   padding-top: 26px;
   color: var(--copper);
   font-weight: 760;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: auto;
+}
+
+.project-links .project-link:hover,
+.project-links .project-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .courses-intro {
@@ -1253,6 +1271,11 @@ p {
   .project-grid,
   .repo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card:nth-child(3):last-child {
+    grid-column: 1 / -1;
+    min-height: 0;
   }
 }
 

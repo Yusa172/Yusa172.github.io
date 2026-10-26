@@ -24,12 +24,32 @@
       stargazers_count: 0,
       forks_count: 0,
       pushed_at: "2026-05-15T16:03:09Z"
+    },
+    {
+      name: "Portfolio-Value-at-Risk-Calculator",
+      full_name: "Yusa172/Portfolio-Value-at-Risk-Calculator",
+      description: "Python library, in development, for portfolio Value-at-Risk and Expected Shortfall.",
+      html_url: "https://github.com/Yusa172/Portfolio-Value-at-Risk-Calculator",
+      language: "Python",
+      stargazers_count: 0,
+      forks_count: 0,
+      pushed_at: "2026-10-25T20:14:01Z"
+    },
+    {
+      name: "Study-clock",
+      full_name: "Yusa172/Study-clock",
+      description: "Study timer with study and break cycles, built for a small secondary monitor.",
+      html_url: "https://github.com/Yusa172/Study-clock",
+      language: "HTML",
+      stargazers_count: 0,
+      forks_count: 0,
+      pushed_at: "2026-10-23T10:21:24Z"
     }
   ];
 
   var commands = [
     { label: "About", hint: "Profile and summary", href: "#about" },
-    { label: "Focus", hint: "Economics, data and markets", href: "#focus" },
+    { label: "Experience", hint: "Work and education", href: "#experience" },
     { label: "Projects", hint: "Featured work", href: "#projects" },
     { label: "Courses", hint: "Courses and certifications", href: "#courses" },
     { label: "Skills", hint: "Tools and education", href: "#skills" },
